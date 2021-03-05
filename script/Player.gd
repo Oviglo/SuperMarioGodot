@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 var speed = 100
-var jump_speed = -500
-var gravity = 1200
-var friction = 0.1
-var acceleration = 0.25
+var jump_speed = -300
+var gravity = 600
+var friction = 0.4
+var acceleration = 0.4
 var velocity = Vector2.ZERO
 var direction = 1
 var is_jumping = false
@@ -39,7 +39,7 @@ func _physics_process(delta):
 
 #Animation function
 func run_animation(name):
-	if ($AnimationPlayer.current_animation != name):
-		$AnimationPlayer.play(name)
-		$Sprite.flip_h = direction < 0
+
+	$AnimatedSprite.play(name)
+	$AnimatedSprite.flip_h = direction < 0
 			
