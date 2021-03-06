@@ -13,17 +13,20 @@ func get_input():
 	if Input.is_action_pressed("walk_right"):
 		direction = 1
 		if !is_jumping:
-			run_animation("walk")
+			$AnimatedSprite.play("walk")
 		velocity.x = lerp(velocity.x, 1* speed, acceleration)
 	elif Input.is_action_pressed("walk_left"):
 		direction = -1
+		
 		if !is_jumping:
-			run_animation("walk")
+			$AnimatedSprite.play("walk")
 		velocity.x = lerp(velocity.x, -1 * speed, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
 		if !is_jumping:
-			run_animation("idle")
+			$AnimatedSprite.play("idle")
+			
+	$AnimatedSprite.flip_h = direction < 0
 
 func _physics_process(delta):
 	get_input()
@@ -33,13 +36,6 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = jump_speed
 			is_jumping = true
-			run_animation("jump")
+			$AnimatedSprite.play("jump")
 	elif is_on_floor():
 		is_jumping = false
-
-#Animation function
-func run_animation(name):
-
-	$AnimatedSprite.play(name)
-	$AnimatedSprite.flip_h = direction < 0
-			
