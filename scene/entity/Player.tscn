@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Player.gd" type="Script" id=1]
 [ext_resource path="res://resource/mario/mario.png" type="Texture" id=2]
@@ -40,9 +40,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 3.44992, 6.16534 )
 
-[sub_resource type="SegmentShape2D" id=7]
-b = Vector2( -0.0154076, 7.65868 )
-
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 50.6943, 192.934 )
 script = ExtResource( 1 )
@@ -64,11 +61,3 @@ drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4.41496, 9.02832 )
-rotation = 3.14159
-shape = SubResource( 7 )
-one_way_collision = true

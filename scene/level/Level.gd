@@ -15,8 +15,6 @@ func init_entities():
 		var type = $Entities.get_cell(cell.x, cell.y)
 		var pos = $Entities.map_to_world(cell)
 		
-		print(type)
-		
 		var entity = null
 		match type:
 			0: # Coin
@@ -27,7 +25,13 @@ func init_entities():
 			1: # Coin Bonus bloc
 				entity = bonusBlock.instance()
 				entity.position = pos
-				entity.type = entity.TYPE_COIN
+				entity.type = entity.BONUS_COIN
+			
+			2: # Coin x 10 Bonus bloc
+				entity = bonusBlock.instance()
+				entity.position = pos
+				entity.type = entity.BONUS_COIN
+				entity.count = 10
 				
 		if (entity != null):
 			add_child(entity)

@@ -28,7 +28,7 @@ extents = Vector2( 8, 8 )
 
 [node name="Coin" type="AnimatedSprite"]
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 centered = false
 script = ExtResource( 2 )
