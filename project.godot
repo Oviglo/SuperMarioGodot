@@ -58,6 +58,11 @@ run={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Coin"
+
 [physics]
 
 2d/physics_engine="GodotPhysics"
