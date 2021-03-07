@@ -1,11 +1,16 @@
 extends StaticBody2D
 
-var is_jumping = true
+var is_jumping = false
 var jump_animation = 0
 
-export (int, "Coin") var type = 0;
+const TYPE_COIN = 0
+const TYPE_COIN_10 = 1
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
+export (int, "Coin", "Coinx10") var type = 0;
+
+
+func _on_ActiveArea_body_entered(body):
+	if (body.name == "Player"):
+		if (body.is_jumping and !is_jumping):
+			is_jumping = true
+			$AnimationPlayer.play("jump")
