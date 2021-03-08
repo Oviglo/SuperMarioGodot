@@ -12,28 +12,31 @@ func _ready():
 func init_entities():
 	for cell in $Entities.get_used_cells():
 		var id = $Entities.get_cellv(cell)
-		var type = $Entities.get_cell(cell.x, cell.y)
 		var pos = $Entities.map_to_world(cell)
+		var name = $Entities.tile_set.tile_get_name(id)
 		
 		var entity = null
-		match type:
-			0: # Coin
+		match name:
+			"Coin":
 				entity = coin.instance()
-				entity.position = pos
 				entity.connect("collect", self, "on_coin_collect")
 				
-			1: # Coin Bonus bloc
+			"BonusCoin":
 				entity = bonusBlock.instance()
-				entity.position = pos
 				entity.type = entity.BONUS_COIN
 			
-			2: # Coin x 10 Bonus bloc
+			"BonusCoin10":
 				entity = bonusBlock.instance()
-				entity.position = pos
 				entity.type = entity.BONUS_COIN
 				entity.count = 10
+			
+			"BonusMushroom":
+				entity = bonusBlock.instance()
+				entity.type = entity.BONUS_MUSHROOM
+				
 				
 		if (entity != null):
+			entity.position = pos
 			add_child(entity)
 
 func on_coin_collect():

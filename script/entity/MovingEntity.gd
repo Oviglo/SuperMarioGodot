@@ -9,10 +9,10 @@ var velocity = Vector2.ZERO
 var acceleration = 10
 var friction = 0
 var gravity = 600
-var is_active = false
+var is_active = true
 
 func _physics_process(delta):
-	if movement_type == 0:
+	if movement_type == 0 and is_active:
 		walk_process(delta)
 		
 
