@@ -14,6 +14,7 @@ var is_active = true
 func _physics_process(delta):
 	if movement_type == 0 and is_active:
 		walk_process(delta)
+		$Sprite.visible = true
 		
 
 func walk_process(delta):

@@ -41,3 +41,7 @@ func init_entities():
 
 func on_coin_collect():
 	print("Coin collect")
+
+
+func _on_Mushroom_collect():
+	$Player.power_up()

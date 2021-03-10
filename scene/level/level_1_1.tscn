@@ -1013,3 +1013,4 @@ tile_data = PoolIntArray( 65537, 22, 0, 65538, 10, 0, 65539, 27, 0, 65540, 18, 0
 
 [node name="Mushroom" parent="." instance=ExtResource( 3 )]
 position = Vector2( 281.045, 184.217 )
+[connection signal="collect" from="Mushroom" to="." method="_on_Mushroom_collect"]

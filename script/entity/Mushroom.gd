@@ -1,9 +1,12 @@
 extends "res://script/entity/MovingEntity.gd"
 
+signal collect
+
 var is_appear = false
 
 func _ready():
 	is_active = !is_appear
+	$Sprite.visible = false
 	
 func appear():
 	$AnimationPlayer.play("Appear")
@@ -16,6 +19,7 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
+		emit_signal("collect")
 		queue_free()
 
 

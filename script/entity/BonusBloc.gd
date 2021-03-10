@@ -37,5 +37,6 @@ func load_bonus():
 	if type == BONUS_MUSHROOM:
 		var bonus = mushroom.instance()
 		bonus.position.y -= 16
+		bonus.position.x -= 1
 		bonus.appear()
 		add_child(bonus)
