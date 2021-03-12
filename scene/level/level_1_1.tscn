@@ -1054,6 +1054,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Goomba"]
 frames = SubResource( 17 )
 animation = "walk"
+frame = 1
 playing = true
 centered = false
 
