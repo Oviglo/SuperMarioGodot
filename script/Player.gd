@@ -8,44 +8,47 @@ var acceleration = 0.4
 var velocity = Vector2.ZERO
 var direction = 1
 var is_jumping = false
+var is_falling = false
 var is_animate = true
 var is_moving = true
 
 var state = 0
 
 func get_input():
+	var animation_name = ""
 	if Input.is_action_pressed("walk_right"):
 		direction = 1
-		if !is_jumping and is_animate:
-			play_animation("walk")
+		animation_name = "walk"
 		velocity.x = lerp(velocity.x, 1* speed, acceleration)
 	elif Input.is_action_pressed("walk_left"):
 		direction = -1
-		
-		if !is_jumping and is_animate:
-			play_animation("walk")
+		animation_name = "walk"
 		velocity.x = lerp(velocity.x, -1 * speed, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
-		if !is_jumping and is_animate:
-			play_animation("idle")
-			
+		animation_name = "idle"
+		
+	if !is_jumping and !is_falling and is_animate:
+		play_animation(animation_name)
+	elif is_animate:
+		play_animation("jump")
+	
 	$AnimatedSprite.flip_h = direction < 0
 	update_areas()
 
 func _physics_process(delta):
 	if is_moving:
+		is_jumping = velocity.y < 0
+		is_falling = velocity.y > 0
 		get_input()
+		
 		velocity.y += gravity * delta
+		
 		velocity = move_and_slide(velocity, Vector2.UP)
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() and is_moving:
 			velocity.y = jump_speed
-			is_jumping = true
-			play_animation("jump")
-	elif is_on_floor():
-		is_jumping = false
 
 # Animation
 func play_animation(name):
