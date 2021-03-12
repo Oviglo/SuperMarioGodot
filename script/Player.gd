@@ -31,6 +31,7 @@ func get_input():
 			play_animation("idle")
 			
 	$AnimatedSprite.flip_h = direction < 0
+	update_areas()
 
 func _physics_process(delta):
 	if is_moving:
@@ -65,3 +66,14 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "powerup":
 		is_moving = true
 		is_animate = true
+
+func update_areas():
+	var jump_pos_y = 0
+	var jump_pos_x = 0
+	if state > 0:
+		jump_pos_y = -10
+	if direction < 0:
+		jump_pos_x = 0
+		
+	$JumpPointArea.get_node("CollisionShape2D").position.y = jump_pos_y
+	$JumpPointArea.get_node("CollisionShape2D").position.x = jump_pos_x

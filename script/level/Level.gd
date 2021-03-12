@@ -19,7 +19,7 @@ func init_entities():
 		match name:
 			"Coin":
 				entity = coin.instance()
-				entity.connect("collect", self, "on_coin_collect")
+				entity.connect("collect", self, "on_Coin_collect")
 				
 			"BonusCoin":
 				entity = bonusBlock.instance()
@@ -39,9 +39,10 @@ func init_entities():
 			entity.position = pos
 			add_child(entity)
 
-func on_coin_collect():
+func on_Coin_collect():
 	print("Coin collect")
 
 
 func _on_Mushroom_collect():
+	print("got Mushroom")
 	$Player.power_up()

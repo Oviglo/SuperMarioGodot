@@ -16,28 +16,27 @@ region = Rect2( 16, 0, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "actived",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 7.96272 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "active"
+[sub_resource type="Animation" id=7]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:offset:y")
@@ -62,7 +61,7 @@ tracks/1/keys = {
 "values": [ "default", "actived" ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "jump"
 length = 2.0
 tracks/0/type = "bezier"
@@ -76,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 1, 2 )
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 5, 1.22102 )
 
 [node name="BonusBloc" type="StaticBody2D"]
@@ -85,24 +84,25 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.629944, -0.653656 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 7.37006, 7.34634 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite")
 playback_speed = 10.0
-anims/active = SubResource( 6 )
-anims/jump = SubResource( 9 )
+anims/active = SubResource( 7 )
+anims/jump = SubResource( 8 )
 
 [node name="ActiveArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActiveArea"]
 position = Vector2( 7.37006, 15.3463 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="ActiveArea" to="." method="_on_ActiveArea_body_entered"]
+[connection signal="area_shape_entered" from="ActiveArea" to="." method="_on_ActiveArea_area_shape_entered"]

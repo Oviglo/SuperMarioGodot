@@ -965,24 +965,24 @@ region = Rect2( 0, 0, 16, 16 )
 atlas = ExtResource( 14 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 14 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 19 ) ],
+"frames": [ SubResource( 17 ) ],
 "loop": true,
 "name": "crushed",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 6, 6 )
 
 [node name="Node2D" type="Node2D"]
@@ -1052,12 +1052,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="Goomba"]
-frames = SubResource( 17 )
+frames = SubResource( 18 )
 animation = "walk"
 playing = true
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba"]
 position = Vector2( 8, 9 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 [connection signal="collect" from="Mushroom" to="." method="_on_Mushroom_collect"]

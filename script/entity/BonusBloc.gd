@@ -12,9 +12,10 @@ const BONUS_FLOWER = 2
 export (int, "Coin", "Mushroom", "Flower") var type = 0
 export (int, 0, 10) var count = 1
 
-func _on_ActiveArea_body_entered(body):
-	if (body.name == "Player"):
-		if (body.is_jumping and !is_jumping):
+func _on_ActiveArea_area_shape_entered(area_id, area, area_shape, self_shape):
+	if area.name == "JumpPointArea":
+		var player = area.get_parent()
+		if (player.is_jumping and !is_jumping):
 			is_jumping = true
 			if count > 1:
 				$AnimationPlayer.play("jump")
@@ -37,6 +38,7 @@ func load_bonus():
 	if type == BONUS_MUSHROOM:
 		var bonus = mushroom.instance()
 		bonus.position.y -= 16
-		bonus.position.x -= 1
+		bonus.position.x = 7
 		bonus.appear()
+		bonus.connect('collect', self.get_parent(), "_on_Mushroom_collect")
 		add_child(bonus)
