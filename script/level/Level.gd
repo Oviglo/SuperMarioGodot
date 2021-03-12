@@ -19,29 +19,35 @@ func init_entities():
 		match name:
 			"Coin":
 				entity = coin.instance()
-				entity.connect("collect", self, "on_coin_collect")
+				entity.connect("collect", self, "on_Coin_collect")
 				
 			"BonusCoin":
 				entity = bonusBlock.instance()
-				entity.type = entity.BONUS_COIN
+				entity.bonus = entity.BONUS_COIN
 			
 			"BonusCoin10":
 				entity = bonusBlock.instance()
-				entity.type = entity.BONUS_COIN
+				entity.bonus = entity.BONUS_COIN
 				entity.count = 10
 			
 			"BonusMushroom":
 				entity = bonusBlock.instance()
-				entity.type = entity.BONUS_MUSHROOM
+				entity.bonus = entity.BONUS_MUSHROOM
+				
+			"Wall":
+				entity = bonusBlock.instance()
+				entity.bonus = entity.BONUS_EMPTY
+				entity.type = entity.TYPE_WALL
+				entity.count = 0
 				
 				
 		if (entity != null):
 			entity.position = pos
 			add_child(entity)
 
-func on_coin_collect():
+func on_Coin_collect():
 	print("Coin collect")
 
-
 func _on_Mushroom_collect():
+	print("got Mushroom")
 	$Player.power_up()

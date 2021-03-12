@@ -18,11 +18,12 @@ func _physics_process(delta):
 		
 
 func walk_process(delta):
-	velocity.x = movement_speed * movement_direction
-	velocity.y += delta * gravity
+	if movement_speed > 0:
+		velocity.x = movement_speed * movement_direction
+		velocity.y += delta * gravity
 	
-	velocity = move_and_slide(velocity, Vector2.UP)
+		velocity = move_and_slide(velocity, Vector2.UP)
 	
-	# wall collision
-	if is_on_wall():
-		movement_direction *= -1
+		# wall collision
+		if is_on_wall():
+			movement_direction *= -1
