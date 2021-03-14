@@ -4,7 +4,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func hurt():
+func crush():
 	movement_speed = 0
 	is_killed = true
 	$CollisionShape2D.queue_free()

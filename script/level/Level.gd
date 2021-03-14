@@ -2,6 +2,7 @@ extends Node2D
 
 onready var coin = preload("res://scene/entity/Coin.tscn")
 onready var bonusBlock = preload("res://scene/entity/BonusBloc.tscn")
+onready var goomba = preload("res://scene/entity/Goomba.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,9 @@ func init_entities():
 				entity.bonus = entity.BONUS_EMPTY
 				entity.type = entity.TYPE_WALL
 				entity.count = 0
+				
+			"Goomba":
+				entity = goomba.instance()
 				
 				
 		if (entity != null):
