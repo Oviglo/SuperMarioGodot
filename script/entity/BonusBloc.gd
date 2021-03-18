@@ -20,6 +20,8 @@ export (int, "Coin", "Mushroom", "Flower", "Empty") var bonus = 0
 export (int, "Bonus", "Wall") var type = 0
 export (int, 0, 10) var count = 1
 
+signal add_coin
+
 func _ready():
 	match type:
 		TYPE_BONUS:
@@ -57,6 +59,7 @@ func load_bonus():
 		item.position.y -= 16
 		item.position.x -= 2
 		add_child(item)
+		emit_signal("add_coin")
 	if bonus == BONUS_MUSHROOM:
 		var item = mushroom.instance()
 		item.position.y -= 16

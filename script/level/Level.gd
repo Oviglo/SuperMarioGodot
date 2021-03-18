@@ -25,11 +25,13 @@ func init_entities():
 			"BonusCoin":
 				entity = bonusBlock.instance()
 				entity.bonus = entity.BONUS_COIN
+				entity.connect("add_coin", self, "on_Coin_collect")
 			
 			"BonusCoin10":
 				entity = bonusBlock.instance()
 				entity.bonus = entity.BONUS_COIN
 				entity.count = 10
+				entity.connect("add_coin", self, "on_Coin_collect")
 			
 			"BonusMushroom":
 				entity = bonusBlock.instance()
@@ -50,7 +52,8 @@ func init_entities():
 			add_child(entity)
 
 func on_Coin_collect():
-	print("Coin collect")
+	$Player.add_coin(1)
+	$Player.add_score(100)
 
 func _on_Mushroom_collect():
 	print("got Mushroom")

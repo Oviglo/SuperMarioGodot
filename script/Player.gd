@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 100
+var speed = 90
 var jump_speed = -300
 var gravity = 600
 var friction = 0.4
@@ -12,7 +12,12 @@ var is_falling = false
 var is_animate = true
 var is_moving = true
 
+var score = 0
+var coins = 0
 var state = 0
+
+signal score_changed
+signal coins_changed
 
 func get_input():
 	var animation_name = ""
@@ -32,6 +37,13 @@ func get_input():
 		play_animation(animation_name)
 	elif is_animate:
 		play_animation("jump")
+		
+	# Run
+	if Input.is_action_just_pressed("run"):
+		speed = 130
+		
+	if Input.is_action_just_released("run"):
+		speed = 90
 	
 	$AnimatedSprite.flip_h = direction < 0
 	update_areas()
@@ -80,3 +92,11 @@ func update_areas():
 		
 	$JumpPointArea.get_node("CollisionShape2D").position.y = jump_pos_y
 	$JumpPointArea.get_node("CollisionShape2D").position.x = jump_pos_x
+
+func add_score(added_score):
+	score += added_score
+	emit_signal("score_changed", score)
+	
+func add_coin(added_coins):
+	coins += added_coins
+	emit_signal("coins_changed", coins)
