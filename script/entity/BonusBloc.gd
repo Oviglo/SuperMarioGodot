@@ -70,25 +70,25 @@ func destroy():
 	var particle1 = wallParticle.instance()
 	particle1.position.x = position.x + 10
 	particle1.position.y = position.y
-	get_parent().add_child(particle1)
+	get_parent().call_deferred("add_child", particle1);
 	particle1.apply_impulse(Vector2(1, 1), Vector2(48, -92))
 	
 	var particle2 = wallParticle.instance()
 	particle2.position.x = position.x + 10
 	particle2.position.y = position.y + 10
-	get_parent().add_child(particle2)
+	get_parent().call_deferred("add_child", particle2);
 	particle2.apply_impulse(Vector2(1, 1), Vector2(48, -64))
 	
 	var particle3= wallParticle.instance()
 	particle3.position.x = position.x
 	particle3.position.y = position.y
-	get_parent().add_child(particle3)
+	get_parent().call_deferred("add_child", particle3);
 	particle3.apply_impulse(Vector2(1, 1), Vector2(-48, -92))
 	
 	var particle4 = wallParticle.instance()
 	particle4.position.x = position.x
 	particle4.position.y = position.y + 10
-	get_parent().add_child(particle4)
+	get_parent().call_deferred("add_child", particle4);
 	particle4.apply_impulse(Vector2(1, 1), Vector2(-48, -64))
 	
 	queue_free()
