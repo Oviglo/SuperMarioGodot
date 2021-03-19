@@ -24,12 +24,14 @@ signal dead
 
 func get_input():
 	var animation_name = ""
-	if Input.is_action_pressed("walk_right") and ((!is_jumping and !is_falling) or direction > 0):
-		direction = 1
+	if Input.is_action_pressed("walk_right"):
+		if !is_jumping and !is_falling:
+			direction = 1
 		animation_name = "walk"
 		velocity.x = lerp(velocity.x, 1* speed, acceleration)
-	elif Input.is_action_pressed("walk_left") and ((!is_jumping and !is_falling) or direction < 0):
-		direction = -1
+	elif Input.is_action_pressed("walk_left"):
+		if !is_jumping and !is_falling:
+			direction = -1
 		animation_name = "walk"
 		velocity.x = lerp(velocity.x, -1 * speed, acceleration)
 	else:
@@ -38,9 +40,11 @@ func get_input():
 		
 	if !is_jumping and !is_falling and is_animate:
 		friction = 0.2
+		acceleration = 0.15
 		play_animation(animation_name)
 	elif is_animate:
 		friction = 0.05
+		acceleration = 0.05
 		play_animation("jump")
 		
 	# Run

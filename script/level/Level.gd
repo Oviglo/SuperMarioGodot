@@ -49,7 +49,6 @@ func init_entities():
 				
 				entity.connect("hurt", self, "on_hurting")
 				
-				
 		if (entity != null):
 			entity.position = pos
 			add_child(entity)
@@ -59,7 +58,6 @@ func on_Coin_collect():
 	$Player.add_score(100)
 
 func _on_Mushroom_collect():
-	print("got Mushroom")
 	$Player.power_up()
 	
 func on_hurting(node):

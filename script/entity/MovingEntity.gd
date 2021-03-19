@@ -9,9 +9,17 @@ var velocity = Vector2.ZERO
 var acceleration = 10
 var friction = 0
 var gravity = 600
-var is_active = true
+var is_active = false
 
 func _physics_process(delta):
+	if !is_active:
+		if get_parent().get_node("Player"):
+			var player_distance = position.distance_to(get_parent().get_node("Player").position)
+			if player_distance < 250:
+				is_active = true
+		else:
+			return
+	
 	if movement_type == 0 and is_active:
 		walk_process(delta)
 		$Sprite.visible = true
