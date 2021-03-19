@@ -46,6 +46,8 @@ func init_entities():
 			"Goomba":
 				entity = goomba.instance()
 				
+				entity.connect("hurt", self, "on_hurting")
+				
 				
 		if (entity != null):
 			entity.position = pos
@@ -58,3 +60,7 @@ func on_Coin_collect():
 func _on_Mushroom_collect():
 	print("got Mushroom")
 	$Player.power_up()
+	
+func on_hurting(node):
+	if node.name == "Player":
+		$Player.hurt()

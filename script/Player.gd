@@ -11,6 +11,8 @@ var is_jumping = false
 var is_falling = false
 var is_animate = true
 var is_moving = true
+var is_dead = false
+var is_hurted = false
 
 var score = 0
 var coins = 0
@@ -76,6 +78,13 @@ func power_up():
 	$CollisionShape2D.shape.set_deferred("extents", Vector2(4, 12))
 	$CollisionShape2D.position.y = 4
 
+func power_down():
+	is_moving = false
+	is_animate = false
+	$AnimatedSprite.play("powerup")
+	state = 0
+	$CollisionShape2D.shape.set_deferred("extents", Vector2(4, 6))
+	$CollisionShape2D.position.y = 10
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "powerup":
@@ -100,3 +109,24 @@ func add_score(added_score):
 func add_coin(added_coins):
 	coins += added_coins
 	emit_signal("coins_changed", coins)
+	
+# Hurt and dead
+func hurt():
+	if is_hurted:
+		pass
+	
+	match state:
+		0:
+			dead()
+		1:
+			power_down()
+			is_hurted = true
+			yield($AnimatedSprite,"animation_finished")
+			$AnimationPlayer.play("Flash")
+			yield(get_tree().create_timer(2.0), "timeout")
+			$AnimationPlayer.stop(true)
+			$AnimatedSprite.visible = true
+			is_hurted = false
+
+func dead():
+	pass

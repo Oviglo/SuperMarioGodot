@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://script/Player.gd" type="Script" id=1]
 [ext_resource path="res://resource/mario/mario.png" type="Texture" id=2]
@@ -21,11 +21,11 @@ region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 17, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 34, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
@@ -33,19 +33,19 @@ region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 306, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 68, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
@@ -57,11 +57,11 @@ region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
@@ -69,15 +69,15 @@ region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 17, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 34, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 238, 0, 17, 33 )
+region = Rect2( 306, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
@@ -85,7 +85,7 @@ region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 238, 0, 17, 33 )
+region = Rect2( 68, 0, 17, 33 )
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
@@ -94,45 +94,64 @@ animations = [ {
 "name": "walk_1",
 "speed": 11.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "walk_0",
-"speed": 11.0
-}, {
-"frames": [ SubResource( 7 ) ],
-"loop": true,
-"name": "idle_0",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 8 ) ],
-"loop": true,
-"name": "jump_1",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 9 ) ],
-"loop": true,
-"name": "jump_0",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": false,
 "name": "powerup",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 21 ) ],
+"frames": [ SubResource( 16 ) ],
 "loop": true,
 "name": "idle_1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "walk_0",
+"speed": 11.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "jump_1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "idle_0",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 21 ) ],
+"loop": true,
+"name": "jump_0",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 3.44992, 6.16534 )
+extents = Vector2( 4, 6 )
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 3, 2 )
 
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 6, 2 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="Animation" id=27]
+resource_name = "Flash"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 50.6943, 192.934 )
@@ -143,7 +162,7 @@ frames = SubResource( 22 )
 animation = "walk_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.595272, 9.82205 )
+position = Vector2( 0, 10 )
 shape = SubResource( 23 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -169,4 +188,14 @@ shape = SubResource( 24 )
 modulate = Color( 0.247059, 0.811765, 0.27451, 1 )
 position = Vector2( 0.0441971, 18 )
 shape = SubResource( 25 )
+
+[node name="HurtArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2( 0, 8 )
+shape = SubResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 16.0
+anims/Flash = SubResource( 27 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

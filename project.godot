@@ -33,7 +33,6 @@ window/stretch/aspect="keep"
 [gui]
 
 theme/use_hidpi=true
-theme/custom_font="res://resource/font/mario_font.tres"
 
 [input]
 

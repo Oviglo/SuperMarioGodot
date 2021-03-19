@@ -6,7 +6,7 @@
 [ext_resource path="res://script/level/Coins.gd" type="Script" id=4]
 [ext_resource path="res://script/level/Score.gd" type="Script" id=5]
 
-[sub_resource type="TileSet" id=14]
+[sub_resource type="TileSet" id=1]
 0/name = "mario_font.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -568,21 +568,21 @@
 39/shapes = [  ]
 39/z_index = 0
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 5, 8 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 5, 0, 5, 8 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 10, 0, 5, 8 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -643,7 +643,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
 [node name="HudTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 14 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 65537, 22, 0, 65538, 10, 0, 65539, 27, 0, 65540, 18, 0, 65541, 24, 0, 65577, 32, 0, 65578, 24, 0, 65579, 27, 0, 65580, 21, 0, 65581, 13, 0, 65584, 29, 0, 65585, 18, 0, 65586, 22, 0, 65587, 14, 0, 131115, 39, 0 )
@@ -669,8 +669,7 @@ region_rect = Rect2( 0, 0, 8, 8 )
 [node name="Sprite" type="Sprite" parent="Coins"]
 
 [node name="Coin" type="AnimatedSprite" parent="Coins"]
-frames = SubResource( 18 )
-frame = 1
+frames = SubResource( 5 )
 playing = true
 centered = false
 
