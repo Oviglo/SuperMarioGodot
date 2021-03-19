@@ -438,6 +438,7 @@ format = 1
 tile_data = PoolIntArray( 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589847, 1, 0, 589848, 1, 0, 589849, 4, 0, 655396, 5, 0, 655397, 5, 0, 655419, 6, 0, 786446, 6, 0, 786464, 6, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 76, 190 )
 z_index = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -465,7 +466,7 @@ motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 1886, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 0, 57.3527 )
+position = Vector2( 0, 57 )
 texture = ExtResource( 9 )
 centered = false
 

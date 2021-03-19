@@ -21,19 +21,19 @@ region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 17, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 34, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 306, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
@@ -45,39 +45,39 @@ region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 238, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 221, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 238, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 17, 33 )
+region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 238, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 17, 0, 17, 33 )
+region = Rect2( 221, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 34, 0, 17, 33 )
+region = Rect2( 238, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 306, 0, 17, 33 )
+region = Rect2( 0, 0, 17, 33 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
@@ -87,36 +87,36 @@ region = Rect2( 0, 0, 17, 33 )
 atlas = ExtResource( 2 )
 region = Rect2( 68, 0, 17, 33 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
 region = Rect2( 170, 0, 17, 33 )
 
-[sub_resource type="SpriteFrames" id=22]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "walk_1",
 "speed": 11.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
-"loop": false,
-"name": "powerup",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 16 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "idle_1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "walk_0",
 "speed": 11.0
 }, {
-"frames": [ SubResource( 19 ) ],
+"frames": [ SubResource( 8 ) ],
 "loop": true,
 "name": "jump_1",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": false,
+"name": "powerup",
+"speed": 12.0
 }, {
 "frames": [ SubResource( 20 ) ],
 "loop": true,
@@ -128,25 +128,25 @@ animations = [ {
 "name": "jump_0",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 28 ) ],
+"frames": [ SubResource( 22 ) ],
 "loop": true,
 "name": "dead",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=23]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 4, 6 )
 
-[sub_resource type="RectangleShape2D" id=24]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 3, 2 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 6, 2 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 6, 6 )
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 resource_name = "Dead"
 length = 2.5
 tracks/0/type = "value"
@@ -174,8 +174,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -48 ), Vector2( 0, 200 ) ]
 }
 
-[sub_resource type="Animation" id=27]
-resource_name = "Flash"
+[sub_resource type="Animation" id=29]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -192,16 +191,15 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 50.6943, 192.934 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 22 )
+frames = SubResource( 23 )
 animation = "idle_0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 10 )
-shape = SubResource( 23 )
+shape = SubResource( 24 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -218,22 +216,22 @@ drag_margin_bottom = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPointArea"]
 modulate = Color( 0.917647, 0.129412, 0.627451, 1 )
 position = Vector2( 0, -10 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="FeetArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
 modulate = Color( 0.247059, 0.811765, 0.27451, 1 )
 position = Vector2( 0.0441971, 18 )
-shape = SubResource( 25 )
+shape = SubResource( 26 )
 
 [node name="HurtArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
 position = Vector2( 0, 8 )
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dead = SubResource( 29 )
-anims/Flash = SubResource( 27 )
+anims/Dead = SubResource( 28 )
+anims/Flash = SubResource( 29 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

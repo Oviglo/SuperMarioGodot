@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 var speed = 90
+var walk_speed = 90
+var run_speed = 130
 var jump_speed = -300
 var gravity = 600
 var friction = 0.2
@@ -49,10 +51,10 @@ func get_input():
 		
 	# Run
 	if Input.is_action_just_pressed("run"):
-		speed = 130
+		speed = run_speed
 		
 	if Input.is_action_just_released("run"):
-		speed = 90
+		speed = walk_speed
 	
 	$AnimatedSprite.flip_h = direction < 0
 	update_areas()
