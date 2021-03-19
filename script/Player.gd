@@ -3,8 +3,8 @@ extends KinematicBody2D
 var speed = 90
 var jump_speed = -300
 var gravity = 600
-var friction = 0.4
-var acceleration = 0.4
+var friction = 0.2
+var acceleration = 0.15
 var velocity = Vector2.ZERO
 var direction = 1
 var is_jumping = false
@@ -20,14 +20,15 @@ var state = 0
 
 signal score_changed
 signal coins_changed
+signal dead
 
 func get_input():
 	var animation_name = ""
-	if Input.is_action_pressed("walk_right"):
+	if Input.is_action_pressed("walk_right") and ((!is_jumping and !is_falling) or direction > 0):
 		direction = 1
 		animation_name = "walk"
 		velocity.x = lerp(velocity.x, 1* speed, acceleration)
-	elif Input.is_action_pressed("walk_left"):
+	elif Input.is_action_pressed("walk_left") and ((!is_jumping and !is_falling) or direction < 0):
 		direction = -1
 		animation_name = "walk"
 		velocity.x = lerp(velocity.x, -1 * speed, acceleration)
@@ -36,8 +37,10 @@ func get_input():
 		animation_name = "idle"
 		
 	if !is_jumping and !is_falling and is_animate:
+		friction = 0.2
 		play_animation(animation_name)
 	elif is_animate:
+		friction = 0.05
 		play_animation("jump")
 		
 	# Run
@@ -134,4 +137,5 @@ func dead():
 	is_animate = false
 	$AnimationPlayer.play("Dead")
 	yield($AnimationPlayer, "animation_finished")
+	emit_signal("dead")
 	queue_free()

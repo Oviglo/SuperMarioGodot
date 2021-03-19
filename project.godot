@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="SuperMarioBros"
 config/description="Snes Super Mario Bros Engine"
-run/main_scene="res://scene/level/level_1_1.tscn"
+run/main_scene="res://scene/level/WorldIntro.tscn"
 config/icon="res://icon.png"
 
 [display]

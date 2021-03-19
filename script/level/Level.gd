@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://script/level/Game.gd"
 
 onready var coin = preload("res://scene/entity/Coin.tscn")
 onready var bonusBlock = preload("res://scene/entity/BonusBloc.tscn")
@@ -8,6 +8,7 @@ onready var goomba = preload("res://scene/entity/Goomba.tscn")
 func _ready():
 	init_entities()
 	$Entities.hide()
+	$Player.connect("dead", self, "on_player_dead")
 
 # Initialisation of entities
 func init_entities():
@@ -64,3 +65,8 @@ func _on_Mushroom_collect():
 func on_hurting(node):
 	if node.name == "Player":
 		$Player.hurt()
+
+func on_player_dead():
+	life -= 1
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().change_scene("res://scene/level/WorldIntro.tscn")
