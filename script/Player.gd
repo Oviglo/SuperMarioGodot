@@ -117,10 +117,11 @@ func hurt():
 	
 	match state:
 		0:
+			is_hurted = true
 			dead()
 		1:
-			power_down()
 			is_hurted = true
+			power_down()
 			yield($AnimatedSprite,"animation_finished")
 			$AnimationPlayer.play("Flash")
 			yield(get_tree().create_timer(2.0), "timeout")
@@ -129,4 +130,8 @@ func hurt():
 			is_hurted = false
 
 func dead():
-	pass
+	is_moving = false
+	is_animate = false
+	$AnimationPlayer.play("Dead")
+	yield($AnimationPlayer, "animation_finished")
+	queue_free()

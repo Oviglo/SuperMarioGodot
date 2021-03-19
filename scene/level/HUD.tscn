@@ -670,6 +670,7 @@ region_rect = Rect2( 0, 0, 8, 8 )
 
 [node name="Coin" type="AnimatedSprite" parent="Coins"]
 frames = SubResource( 5 )
+frame = 2
 playing = true
 centered = false
 
