@@ -420,6 +420,20 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
+7/name = "KoopaGreen"
+7/texture = ExtResource( 10 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 48, 16, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -435,7 +449,7 @@ tile_data = PoolIntArray( 196608, 1, 0, 196609, 2, 0, 262144, 4, 0, 262145, 5, 0
 tile_set = SubResource( 13 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589847, 1, 0, 589848, 1, 0, 589849, 4, 0, 655396, 5, 0, 655397, 5, 0, 655419, 6, 0, 786446, 6, 0, 786464, 6, 0 )
+tile_data = PoolIntArray( 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589847, 1, 0, 589848, 1, 0, 589849, 4, 0, 655396, 5, 0, 655397, 5, 0, 655419, 6, 0, 786446, 6, 0, 786464, 6, 0, 852015, 7, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 76, 190 )

@@ -23,7 +23,6 @@ func _physics_process(delta):
 	if movement_type == 0 and is_active:
 		walk_process(delta)
 		$Sprite.visible = true
-		
 
 func walk_process(delta):
 	if movement_speed > 0:
@@ -31,7 +30,8 @@ func walk_process(delta):
 		velocity.y += delta * gravity
 	
 		velocity = move_and_slide(velocity, Vector2.UP)
-	
+		$Sprite.flip_h = movement_direction < 1
 		# wall collision
 		if is_on_wall():
 			movement_direction *= -1
+			

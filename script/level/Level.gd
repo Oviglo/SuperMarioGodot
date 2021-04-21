@@ -3,6 +3,7 @@ extends "res://script/level/Game.gd"
 onready var coin = preload("res://scene/entity/Coin.tscn")
 onready var bonusBlock = preload("res://scene/entity/BonusBloc.tscn")
 onready var goomba = preload("res://scene/entity/Goomba.tscn")
+onready var koopaGreen = preload("res://scene/entity/KoopaGreen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,6 +48,10 @@ func init_entities():
 			"Goomba":
 				entity = goomba.instance()
 				
+				entity.connect("hurt", self, "on_hurting")
+				
+			"KoopaGreen":
+				entity = koopaGreen.instance()
 				entity.connect("hurt", self, "on_hurting")
 				
 		if (entity != null):
