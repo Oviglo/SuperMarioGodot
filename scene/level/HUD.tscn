@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://resource/hud/coin.png" type="Texture" id=1]
-[ext_resource path="res://resource/tileset/mario_font.png" type="Texture" id=2]
-[ext_resource path="res://resource/hud/x.png" type="Texture" id=3]
+[ext_resource path="res://resource/hud/coin.png" type="Texture2D" id=1]
+[ext_resource path="res://resource/tileset/mario_font.png" type="Texture2D" id=2]
+[ext_resource path="res://resource/hud/x.png" type="Texture2D" id=3]
 [ext_resource path="res://script/level/Coins.gd" type="Script" id=4]
 [ext_resource path="res://script/level/Score.gd" type="Script" id=5]
 
@@ -594,49 +594,49 @@ animations = [ {
 position = Vector2( 8, 16 )
 script = ExtResource( 5 )
 
-[node name="Unit1" type="Sprite" parent="Score"]
+[node name="Unit1" type="Sprite2D" parent="Score"]
 position = Vector2( 48, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit2" type="Sprite" parent="Score"]
+[node name="Unit2" type="Sprite2D" parent="Score"]
 position = Vector2( 40, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit3" type="Sprite" parent="Score"]
+[node name="Unit3" type="Sprite2D" parent="Score"]
 position = Vector2( 32, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit4" type="Sprite" parent="Score"]
+[node name="Unit4" type="Sprite2D" parent="Score"]
 position = Vector2( 24, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit5" type="Sprite" parent="Score"]
+[node name="Unit5" type="Sprite2D" parent="Score"]
 position = Vector2( 16, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit6" type="Sprite" parent="Score"]
+[node name="Unit6" type="Sprite2D" parent="Score"]
 position = Vector2( 8, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit7" type="Sprite" parent="Score"]
+[node name="Unit7" type="Sprite2D" parent="Score"]
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
@@ -646,34 +646,34 @@ region_rect = Rect2( 0, 0, 8, 8 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 65537, 22, 0, 65538, 10, 0, 65539, 27, 0, 65540, 18, 0, 65541, 24, 0, 65577, 32, 0, 65578, 24, 0, 65579, 27, 0, 65580, 21, 0, 65581, 13, 0, 65584, 29, 0, 65585, 18, 0, 65586, 22, 0, 65587, 14, 0, 131115, 39, 0 )
+tile_data = PackedInt32Array( 65537, 22, 0, 65538, 10, 0, 65539, 27, 0, 65540, 18, 0, 65541, 24, 0, 65577, 32, 0, 65578, 24, 0, 65579, 27, 0, 65580, 21, 0, 65581, 13, 0, 65584, 29, 0, 65585, 18, 0, 65586, 22, 0, 65587, 14, 0, 131115, 39, 0 )
 
 [node name="Coins" type="Node2D" parent="."]
 position = Vector2( 120, 16 )
 script = ExtResource( 4 )
 
-[node name="Unit1" type="Sprite" parent="Coins"]
+[node name="Unit1" type="Sprite2D" parent="Coins"]
 position = Vector2( 24, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Unit2" type="Sprite" parent="Coins"]
+[node name="Unit2" type="Sprite2D" parent="Coins"]
 position = Vector2( 16, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Sprite" type="Sprite" parent="Coins"]
+[node name="Sprite2D" type="Sprite2D" parent="Coins"]
 
-[node name="Coin" type="AnimatedSprite" parent="Coins"]
+[node name="Coin" type="AnimatedSprite2D" parent="Coins"]
 frames = SubResource( 5 )
 frame = 1
 playing = true
 centered = false
 
-[node name="X" type="Sprite" parent="Coins"]
+[node name="X" type="Sprite2D" parent="Coins"]
 position = Vector2( 11, 5 )
 texture = ExtResource( 3 )

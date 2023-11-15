@@ -6,13 +6,13 @@ var is_appear = false
 
 func _ready():
 	is_active = !is_appear
-	$Sprite.visible = false
+	$Sprite2D.visible = false
 	
 func appear():
 	$AnimationPlayer.play("Appear")
 	is_appear = true
 	is_active = false
-	$Sprite.z_index = -1
+	$Sprite2D.z_index = -1
 
 func _physics_process(delta):
 	pass

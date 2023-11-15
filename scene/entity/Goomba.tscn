@@ -1,60 +1,66 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dx70c7agr540d"]
 
-[ext_resource path="res://resource/entity/goomba.png" type="Texture" id=1]
-[ext_resource path="res://script/entity/Goomba.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://bxxeoimvher8s" path="res://resource/entity/goomba.png" id="1"]
+[ext_resource type="Script" path="res://script/entity/Goomba.gd" id="2"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "walk",
+"name": &"crushed",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
 "loop": true,
-"name": "crushed",
+"name": &"walk",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 6, 6 )
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(6, 6)
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 6, 6 )
+[sub_resource type="RectangleShape2D" id="6"]
+size = Vector2(6, 6)
 
-[node name="Goomba" type="KinematicBody2D"]
-position = Vector2( 224, 192 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Goomba" type="CharacterBody2D"]
+position = Vector2(224, 192)
+script = ExtResource("2")
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
-animation = "walk"
-playing = true
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("4")
+animation = &"walk"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 9 )
-shape = SubResource( 5 )
+position = Vector2(8, 9)
+shape = SubResource("5")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-modulate = Color( 0.92549, 0.54902, 0.0627451, 1 )
-position = Vector2( 8, 8 )
-shape = SubResource( 6 )
+modulate = Color(0.92549, 0.54902, 0.0627451, 1)
+position = Vector2(8, 8)
+shape = SubResource("6")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

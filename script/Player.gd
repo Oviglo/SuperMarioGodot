@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var speed = 90
 var walk_speed = 90
@@ -7,7 +7,6 @@ var jump_speed = -300
 var gravity = 600
 var friction = 0.2
 var acceleration = 0.15
-var velocity = Vector2.ZERO
 var direction = 1
 var is_jumping = false
 var is_falling = false
@@ -30,14 +29,14 @@ func get_input():
 		if !is_jumping and !is_falling:
 			direction = 1
 		animation_name = "walk"
-		velocity.x = lerp(velocity.x, 1* speed, acceleration)
+		velocity.x = lerp(velocity.x, 1.0 * speed, acceleration)
 	elif Input.is_action_pressed("walk_left"):
 		if !is_jumping and !is_falling:
 			direction = -1
 		animation_name = "walk"
-		velocity.x = lerp(velocity.x, -1 * speed, acceleration)
+		velocity.x = lerp(velocity.x, -1.0 * speed, acceleration)
 	else:
-		velocity.x = lerp(velocity.x, 0, friction)
+		velocity.x = lerp(velocity.x, 0.0, friction)
 		animation_name = "idle"
 		
 	if !is_jumping and !is_falling and is_animate:
@@ -56,7 +55,7 @@ func get_input():
 	if Input.is_action_just_released("run"):
 		speed = walk_speed
 	
-	$AnimatedSprite.flip_h = direction < 0
+	$AnimatedSprite2D.flip_h = direction < 0
 	update_areas()
 
 func _physics_process(delta):
@@ -67,7 +66,10 @@ func _physics_process(delta):
 		
 		velocity.y += gravity * delta
 		
-		velocity = move_and_slide(velocity, Vector2.UP)
+		set_velocity(velocity)
+		set_up_direction(Vector2.UP)
+		move_and_slide()
+		velocity = velocity
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() and is_moving:
@@ -76,27 +78,27 @@ func _physics_process(delta):
 # Animation
 func play_animation(name):
 	name += ("_" + str(state))
-	$AnimatedSprite.play(name)
+	$AnimatedSprite2D.play(name)
 
 #Power up
 func power_up():
 	is_moving = false
 	is_animate = false
-	$AnimatedSprite.play("powerup")
+	$AnimatedSprite2D.play("powerup")
 	state = 1
-	$CollisionShape2D.shape.set_deferred("extents", Vector2(4, 12))
+	$CollisionShape2D.shape.set_deferred("size", Vector2(4, 12))
 	$CollisionShape2D.position.y = 4
 
 func power_down():
 	is_moving = false
 	is_animate = false
-	$AnimatedSprite.play("powerup")
+	$AnimatedSprite2D.play("powerup")
 	state = 0
-	$CollisionShape2D.shape.set_deferred("extents", Vector2(4, 6))
+	$CollisionShape2D.shape.set_deferred("size", Vector2(4, 6))
 	$CollisionShape2D.position.y = 10
 
 func _on_AnimatedSprite_animation_finished():
-	if $AnimatedSprite.animation == "powerup":
+	if $AnimatedSprite2D.animation == "powerup":
 		is_moving = true
 		is_animate = true
 
@@ -127,21 +129,21 @@ func hurt():
 	match state:
 		0:
 			is_hurted = true
-			dead()
+			kill()
 		1:
 			is_hurted = true
 			power_down()
-			yield($AnimatedSprite,"animation_finished")
+			await $AnimatedSprite2D.animation_finished
 			$AnimationPlayer.play("Flash")
-			yield(get_tree().create_timer(2.0), "timeout")
+			await get_tree().create_timer(2.0).timeout
 			$AnimationPlayer.stop(true)
-			$AnimatedSprite.visible = true
+			$AnimatedSprite2D.visible = true
 			is_hurted = false
 
-func dead():
+func kill():
 	is_moving = false
 	is_animate = false
 	$AnimationPlayer.play("Dead")
-	yield($AnimationPlayer, "animation_finished")
+	await $AnimationPlayer.animation_finished
 	emit_signal("dead")
 	queue_free()

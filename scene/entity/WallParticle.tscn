@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://resource/effect/wall_break.png" type="Texture" id=1]
+[ext_resource path="res://resource/effect/wall_break.png" type="Texture2D" id=1]
 [ext_resource path="res://script/entity/WallParticle.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -28,7 +28,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 2, 2 )
+size = Vector2( 2, 2 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 z_index = 2
@@ -37,7 +37,7 @@ collision_mask = 2
 gravity_scale = 4.0
 script = ExtResource( 2 )
 
-[node name="WallParticle" type="AnimatedSprite" parent="."]
+[node name="WallParticle" type="AnimatedSprite2D" parent="."]
 frames = SubResource( 5 )
 frame = 1
 playing = true

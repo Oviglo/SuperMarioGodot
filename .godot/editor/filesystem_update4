@@ -1,0 +1,9 @@
+res://default_env.tres
+res://scene/level/WorldIntro.tscn
+res://scene/level/world_1_1.tscn
+res://scene/entity/Goomba.tscn
+res://script/Player.gd
+res://script/level/Level.gd
+res://script/entity/BonusBloc.gd
+res://scene/entity/BonusBloc.tscn
+res://scene/entity/Player.tscn

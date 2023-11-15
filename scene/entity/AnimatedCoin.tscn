@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://script/entity/AnimatedCoin.gd" type="Script" id=1]
-[ext_resource path="res://resource/entity/coin_bonus.png" type="Texture" id=2]
+[ext_resource path="res://resource/entity/coin_bonus.png" type="Texture2D" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -47,7 +47,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="AnimatedCoin" type="AnimatedSprite"]
+[node name="AnimatedCoin" type="AnimatedSprite2D"]
 frames = SubResource( 10 )
 speed_scale = 2.5
 centered = false
