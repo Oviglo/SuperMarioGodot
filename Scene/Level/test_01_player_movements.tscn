@@ -626,7 +626,6 @@ sources/0 = SubResource("TileSetAtlasSource_fj50c")
 
 [node name="Mario" parent="." instance=ExtResource("1_5q7do")]
 position = Vector2(141, 111)
-gravity = 4000
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 1)
