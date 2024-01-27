@@ -49,9 +49,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mmfib")
 }],
-"loop": true,
+"loop": false,
 "name": &"Skid",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -76,8 +76,8 @@ script = ExtResource("1_fwvr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3k6p8")
-animation = &"Walk"
-frame_progress = 0.268506
+animation = &"Skid"
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.537505, 9.51429)

@@ -4,10 +4,10 @@ extends CharacterBody2D
 
 @export var walk_speed: int = 90
 @export var jump_speed = -300
-@export var run_speed: int = 130
+@export var run_speed: int = 150
 @export var gravity: int = 600
 @export_range(0.0, 1.0) var friction = 0.2
-@export_range(0.0 , 1.0) var acceleration = 0.15
+@export_range(0.0, 1.0) var acceleration = 0.1
 
 var speed: int = walk_speed
 var movement_state: int = MOVEMENT_STATE.STOP
@@ -56,35 +56,45 @@ func run_stop() -> void:
 	is_run = false
 	speed = walk_speed
 	
-func run_animation_speed():
+func run_animation_speed() -> void:
 	if (is_run):
 		_animated_sprite.set_speed_scale(RUN_ANIMATION_SCALE)
 	else:
-		_animated_sprite.set_speed_scale(1)	
+		_animated_sprite.set_speed_scale(1)
 
-func set_animation(name: ANIMATION) -> void:
-	match (name):
+func set_animation(animation_name: ANIMATION) -> void:
+	match (animation_name):
 		ANIMATION.IDLE:
 			if is_on_floor(): 
 				_animated_sprite.play("Idle")
 			else:
 				_animated_sprite.play("Jump")
 		ANIMATION.WALK:
-			if is_on_floor():
-				_animated_sprite.play("Walk")
-				run_animation_speed()
+			if is_on_floor() && !is_skid:
+				if (velocity.x * direction) > 0:
+					_animated_sprite.play("Walk")
+					run_animation_speed()
+				else:
+					_animated_sprite.play("Skid")
 			else:
 				_animated_sprite.play("Jump")
 		ANIMATION.SKID:
 			if is_on_floor():
-				_animated_sprite.play('Skid')
-	
+				_animated_sprite.play("Skid")
+			else:
+				_animated_sprite.play("Jump")
+		
 	generate_direction()
 		
-func generate_direction():
+func generate_direction() -> void:
 	if direction != 0 && is_on_floor():
 		_animated_sprite.flip_h = direction < 0
 
+func check_skid() -> void:
+	if (velocity.x > 0 && direction > 0 && !is_skid):
+		is_skid = true
+		set_animation(ANIMATION.SKID)
+	
 # ===== CharacterBody2D functions =====
 func _physics_process(delta) -> void:
 	
