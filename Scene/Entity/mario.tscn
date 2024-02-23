@@ -1,7 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd6ahyifpomav"]
+[gd_scene load_steps=17 format=3 uid="uid://dd6ahyifpomav"]
 
 [ext_resource type="Texture2D" uid="uid://71pnx0jcfhsw" path="res://Resource/Entity/mario.png" id="1_bqsij"]
-[ext_resource type="Script" path="res://Script/Entity/mario.gd" id="1_fwvr5"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Player.gd" id="1_jimxr"]
+[ext_resource type="Script" path="res://Script/StateMachine/StateMachine.gd" id="3_mrkja"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Idle.gd" id="4_syaxo"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Walk.gd" id="5_4dsts"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Fall.gd" id="6_nlj43"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Jump.gd" id="7_lq2by"]
+[ext_resource type="Script" path="res://Script/Entity/Player/Run.gd" id="8_ntmwt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plejf"]
 atlas = ExtResource("1_bqsij")
@@ -69,16 +75,34 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lytk"]
-size = Vector2(8.03608, 11.9565)
+size = Vector2(7.84236, 11.234)
 
 [node name="Mario" type="CharacterBody2D"]
-script = ExtResource("1_fwvr5")
+script = ExtResource("1_jimxr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3k6p8")
-animation = &"Skid"
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.537505, 9.51429)
+position = Vector2(-0.118584, 9.15306)
 shape = SubResource("RectangleShape2D_6lytk")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_mrkja")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_syaxo")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_4dsts")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("6_nlj43")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("7_lq2by")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("8_ntmwt")
