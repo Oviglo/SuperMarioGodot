@@ -14,3 +14,8 @@ func get_direction() -> float:
 
 func is_walking() -> bool:
 	return Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
+	
+func set_sprite_direction() -> void:
+	var direction: float = get_direction()
+	if direction != 0:
+		player._animated_sprite.flip_h = get_direction() < 0
