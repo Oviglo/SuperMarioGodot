@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Super Mario Godot"
 config/description="Remake of Snes style Super Mario game for personnal training"
-run/main_scene="res://Scene/Level/test_01_player_movements.tscn"
+run/main_scene="res://Scene/Level/test_02_goomba.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
