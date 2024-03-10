@@ -13,12 +13,12 @@ func init_entities() -> void:
 		var position: Vector2 = entities.map_to_local(cell)
 		var name: String = data.get_custom_data("name")
 		
-		var entity = null
+		var entity: Node = null
 		match name:
 			"goomba":
 				entity = goomba.instantiate()
 				
-		if (entity != null):
+		if entity != null:
 			entity.position = position
 			add_child(entity)			
 	pass

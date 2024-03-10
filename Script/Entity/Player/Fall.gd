@@ -6,7 +6,7 @@ func physics_update(delta: float) -> void:
 
 	# Brake the falling
 	if (player.velocity.x * get_direction()) < 0:
-		player.velocity.x += get_direction()
+		player.velocity.x = lerp(player.velocity.x, get_direction() * player.walk_speed, player.acceleration)
 	
 	player.move_and_slide()
 	

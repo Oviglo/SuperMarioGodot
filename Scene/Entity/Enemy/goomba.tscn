@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlofv2tr25me1"]
+[gd_scene load_steps=7 format=3 uid="uid://dlofv2tr25me1"]
 
+[ext_resource type="Script" path="res://Script/Entity/Enemy/Goomba.gd" id="1_gcwqn"]
 [ext_resource type="Texture2D" uid="uid://bhq1e8m1dc35b" path="res://Resource/Entity/goomba.png" id="1_ptc0h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlqc6"]
@@ -25,14 +26,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48qom"]
-size = Vector2(12.3198, 11.05)
+size = Vector2(12.3198, 11.1437)
 
-[node name="Gooba" type="CharacterBody2D"]
+[node name="Goomba" type="CharacterBody2D"]
+script = ExtResource("1_gcwqn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o81kk")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.490643, 1.89662)
+position = Vector2(0.490643, 1.94349)
 shape = SubResource("RectangleShape2D_48qom")

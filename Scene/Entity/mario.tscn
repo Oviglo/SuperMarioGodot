@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd6ahyifpomav"]
+[gd_scene load_steps=18 format=3 uid="uid://dd6ahyifpomav"]
 
 [ext_resource type="Texture2D" uid="uid://71pnx0jcfhsw" path="res://Resource/Entity/mario.png" id="1_bqsij"]
 [ext_resource type="Script" path="res://Script/Entity/Player/Player.gd" id="1_jimxr"]
@@ -77,6 +77,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lytk"]
 size = Vector2(7.84236, 11.234)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mclo1"]
+size = Vector2(7.88159, 2.20353)
+
 [node name="Mario" type="CharacterBody2D"]
 script = ExtResource("1_jimxr")
 
@@ -106,3 +109,10 @@ script = ExtResource("7_lq2by")
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("8_ntmwt")
+
+[node name="CrushArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushArea"]
+position = Vector2(-0.534203, 15.8707)
+shape = SubResource("RectangleShape2D_mclo1")
+debug_color = Color(0.831373, 0.380392, 0.27451, 0.419608)
