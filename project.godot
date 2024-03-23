@@ -24,6 +24,18 @@ window/size/window_width_override=852
 window/size/window_height_override=480
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Script/Entity/Enemy/": "red",
+"res://Script/Entity/Player/": "green",
+"res://Script/StateMachine/": "gray"
+}
+
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_left={

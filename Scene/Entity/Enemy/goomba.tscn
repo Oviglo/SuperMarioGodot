@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlofv2tr25me1"]
+[gd_scene load_steps=10 format=3 uid="uid://dlofv2tr25me1"]
 
 [ext_resource type="Script" path="res://Script/Entity/Enemy/Goomba.gd" id="1_gcwqn"]
 [ext_resource type="Texture2D" uid="uid://bhq1e8m1dc35b" path="res://Resource/Entity/goomba.png" id="1_ptc0h"]
+[ext_resource type="Script" path="res://Script/StateMachine/StateMachine.gd" id="3_3me1g"]
+[ext_resource type="Script" path="res://Script/Entity/Enemy/Walk.gd" id="4_8dh86"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlqc6"]
 atlas = ExtResource("1_ptc0h")
@@ -22,11 +24,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48qom"]
 size = Vector2(12.3198, 11.1437)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcb5e"]
+size = Vector2(14.3276, 5.57491)
 
 [node name="Goomba" type="CharacterBody2D"]
 script = ExtResource("1_gcwqn")
@@ -34,7 +39,20 @@ script = ExtResource("1_gcwqn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o81kk")
 animation = &"walk"
+frame_progress = 0.255218
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.490643, 1.94349)
+position = Vector2(0.277218, 1.24116)
 shape = SubResource("RectangleShape2D_48qom")
+
+[node name="WallCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.277218, 0.610619)
+shape = SubResource("RectangleShape2D_wcb5e")
+debug_color = Color(0.690196, 0.490196, 0.207843, 0.419608)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_3me1g")
+initial_state = NodePath("Walk")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_8dh86")
